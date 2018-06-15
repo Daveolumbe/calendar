@@ -46,7 +46,7 @@ class Calendar extends Component {
 
       let blanks = [];
       for(let i = 0; i < this.firstDayOfMonth(); i++) {
-          blanks.push(<td key={i * 80} className="emptySlot">{""}</td>);
+          blanks.push(<td key={i * 80} className="emptySlot overflow-cell-color">{""}</td>);
       }
       console.log("blanks: " + blanks);
 

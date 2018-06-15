@@ -11,6 +11,10 @@ tr {
     border: 2px solid skyblue;
 }
 
+.overflow-cell-color {
+    background: #d3d3d8;
+}
+
 .calendar {
     background-color: white;
     border-spacing: 0;
