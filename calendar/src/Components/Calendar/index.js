@@ -33,11 +33,27 @@ class Calendar extends Component {
         return firstDay; 
     }
 
+    onSelectChange = (e, data) => {
+        this.setMonth(data);
+    }
+
+
+    setMonth = (month) => {
+        let monthIndex = this.months.indexOf(month);
+        let dateContext = Object.assign({}, this.state.dateContext);
+        dateContext = moment(dateContext).set("month", monthIndex);
+        this.setState({
+            dateContext: dateContext
+        })
+    }
+
     selectList = (props) => {
         let dropdown = props.data.map((data) => {
             return (
                 <option key={data}>
-                <a href="">{data}</a></option>
+                <a href="" onClick={(e) => {
+                    this.onSelectChange(e, data)
+                }}>{data}</a></option>
             )
         });
 
