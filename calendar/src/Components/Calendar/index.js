@@ -90,11 +90,12 @@ class Calendar extends Component {
       <div className="col-md-2">  </div>
       <div className="col-md-8 c-container">        
       <h2>Calendar</h2>
-        <table className="table table-hover">
+        <table className="table table-hover table-bordered">
         <thead>
+            <tr className="calendar-header"></tr>
         </thead>
         <tbody>
-        <tr>{weekDays}</tr>
+        <tr className="table-primary">{weekDays}</tr>
         {trDaysElems}
         </tbody>
         </table>
