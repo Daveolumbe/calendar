@@ -7,9 +7,7 @@ class Calendar extends Component {
 
     state = {
         dateContext: moment(),
-        today: moment(),
-        showMonthPopUp: false,
-        showYearPopup: false
+        today: moment()
     }
 
     constructor(props) {
@@ -35,7 +33,31 @@ class Calendar extends Component {
         return firstDay; 
     }
 
+    selectList = (props) => {
+        let dropdown = props.data.map((data) => {
+            return (
+                <option key={data}>
+                <a href="">{data}</a></option>
+            )
+        });
 
+        return (
+            <div class="form-group">
+        <select class="form-control" id="exampleFormControlSelect1">
+       {dropdown}
+        </select>
+        </div>
+        )
+    }
+
+    MonthSelection = () => {
+        return (
+            <span className="label-month">
+                <h3>{this.month()}</h3>
+                <this.selectList data={this.months} />
+                </span>
+        )
+    }
 
   render() {
       let weekDays = this.weekdaysShort.map((day) => {
@@ -92,7 +114,11 @@ class Calendar extends Component {
       <h2>Calendar</h2>
         <table className="table table-hover table-bordered">
         <thead>
-            <tr className="calendar-header"></tr>
+            <tr className="calendar-header">
+              <td colSpan="2">
+              <this.MonthSelection />
+              </td>
+            </tr>
         </thead>
         <tbody>
         <tr className="table-primary">{weekDays}</tr>
